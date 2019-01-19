@@ -1,0 +1,31 @@
+
+.nav{
+    background: var(--theme-top-bar-background, #fdf9f3);
+    position: fixed;
+    border-bottom: 1px solid rgba(0,0,0,0.33);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.13);
+    width: auto;
+    max-width: 100%;
+    width: 100%;
+    margin: auto;
+    position: relative;
+    padding: 5px;
+
+.write {
+    cursor: pointer;
+    width: auto;
+    padding: 5px;
+    height: auto;
+    top: 12px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 3px;
+    border: 2px solid #0a0a0a;
+    border: 2px solid var(--theme-top-bar-write-color, #0a0a0a);
+    color: var(--theme-top-bar-write-color, whitesmoke);
+    background: var(--theme-top-bar-write-background, red);
+    box-shadow: 5px 3px 0 #0e2877;
+   
+} 
+
+}

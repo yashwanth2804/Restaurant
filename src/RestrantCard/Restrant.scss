@@ -1,0 +1,61 @@
+.card {
+
+    .green{
+        color:green;
+        font-size:1.4rem
+    }
+
+    .red{
+        color:red;
+        font-size:1.4rem
+    }
+
+    width: 75%;
+    padding: 10px;
+    margin-left: 10%;
+
+    background: #f8f9ff;
+    border: 1px solid #4e57ef;
+    box-shadow: 3px 4px 0px #4e57ef;
+    /* border: 5px solid #0e2877; */
+    /* box-shadow: 5px 6px 0 #0e2877; */
+    transition: opacity .35s ease-in;
+
+.nameLoc{
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid #14b38e;
+}
+.review{
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid #14b38e;
+}
+
+    .write {
+        cursor: pointer;
+        width: 100%;
+        padding:1px;
+        height: 3rem;
+        top: 12px;
+        text-align: center;
+        font-weight: bold;
+        border-radius: 3px;
+        border: 2px solid #0a0a0a;
+        border: 2px solid var(--theme-top-bar-write-color, #0a0a0a);
+        color: var(--theme-top-bar-write-color, #0a0a0a);
+          
+        background: #cfd7ff;
+        border: 1px solid #4e57ef;
+        box-shadow: 3px 4px 0px #4e57ef;
+    
+        &:active {
+            background-color: #7b7fcc;
+            box-shadow: 1px 1px rgb(77, 77, 77);
+            transform: translateY(2px);
+            
+            color: white;
+           
+          }
+    } 
+}

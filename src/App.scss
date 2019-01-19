@@ -1,0 +1,77 @@
+.g{
+  margin: 0;
+  width: calc(100% - 12px);
+  border-radius: 3px;
+  border: 0px;
+  padding: 8px;
+  font-size: 0.9em;
+  background: #e8e7e7;
+  background: var(--theme-top-bar-search-background, #e8e7e7);
+  color: var(--theme-top-bar-search-color, #0a0a0a);
+  -webkit-appearance: none;
+}
+.inp{
+  //padding: 10px;
+   font-weight: bold;
+  border: 2px solid #0e2877;
+  box-shadow: 5px 6px 0 #0e2877;
+}
+.p{
+  padding: 3px 4px 5px;
+}
+
+.write {
+  cursor: pointer;
+  width: 100%;
+  padding:1px;
+  height: 3rem;
+  top: 12px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 3px;
+  border: 2px solid #0a0a0a;
+  border: 2px solid var(--theme-top-bar-write-color, #0a0a0a);
+  color: var(--theme-top-bar-write-color, #0a0a0a);
+    
+  background: #cfd7ff;
+  border: 1px solid #4e57ef;
+  box-shadow: 3px 4px 0px #4e57ef;
+
+  &:active {
+      background-color: #7b7fcc;
+      box-shadow: 1px 1px rgb(77, 77, 77);
+      transform: translateY(2px);
+      
+      color: white;
+     
+    }
+} 
+
+.RestarantCard{
+  padding: 3%;
+}
+.container {
+
+// margin: 10px 0 0 10px;
+
+@media only screen and (max-width: 767.99px){
+
+//  padding: 5px 5px;
+border: 2px solid red;
+  padding: 5px;
+  border-style: dashed;
+
+}
+
+@media only screen and (min-width: 1000px){
+/// margin-left: 350px;
+width: 50%;
+  margin-left: 25%;
+  margin-top: 1%;
+  border: 2px solid red;
+  padding: 5px;
+  border-style: dashed;
+
+}
+
+}
