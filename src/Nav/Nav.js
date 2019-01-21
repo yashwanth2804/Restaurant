@@ -1,7 +1,7 @@
 import React from 'react'
 import './Nav.scss';
 
-import { Row, Col, Input, Icon ,Rate,Switch} from 'antd';
+import { Row, Col} from 'antd';
 export default function Nav() {
   return (
     <div className={"nav"}>

@@ -3,7 +3,7 @@ import Nav from './Nav/Nav'
 import './App.scss';
 import axios from 'axios'
 import RestarantList from './RestarantList/index'
-import { Select, Row, Col, Divider, Icon, Button, AutoComplete } from 'antd';
+import {  Row, Col, Divider, Icon, Button, AutoComplete } from 'antd';
 
 
 class App extends Component {
@@ -65,7 +65,7 @@ this.setState({ ...this.state, data: data_.Restrants, Count: data_.Count, hasNxt
     const handleSort = async (sort, sortOrder) => {
       console.log(sort + " 7777  " + sortOrder)
       this.setState({
-        ... this.state,
+        ...this.state,
         sort,
         sortOrder
       }
@@ -129,7 +129,7 @@ this.setState({ ...this.state, data: data_.Restrants, Count: data_.Count, hasNxt
 
 
       this.setState({
-        ... this.state,
+        ...this.state,
 
         Count,
         hasNxt,

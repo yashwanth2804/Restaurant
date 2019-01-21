@@ -21,7 +21,7 @@ export default class RestrantCard extends Component {
   render() {
  
    
-   const { 'Restaurant ID':Restaurantid,
+   const {  
     "Restaurant Name" : RestName,
      Cuisines,
     "Average Cost for two" : avgF2,
@@ -35,7 +35,7 @@ export default class RestrantCard extends Component {
     restaurantsAdd
   } = this.props.datanew;
 
- const { "Restaurant ID": restID,"Country Code":CC,City,Address,Locality,"Locality Verbose":LocVeb,Longitude,Latitude  } 
+ const { City,Address,Locality } 
  = restaurantsAdd[0];
  
 
@@ -96,7 +96,7 @@ export default class RestrantCard extends Component {
         <Col  sm={12}  md={{ span: 7, offset: 1 }}  >
        
        
-       <iframe width="100%"  frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0" src="http://www.openstreetmap.org/export/embed.html?bbox=10.972546935081484%2C49.59850757245689%2C10.97988545894623%2C49.60164362863992&amp;layer=mapnik&amp;marker=49.600075625759565%2C10.976216197013855"  ></iframe><br/><small><a href="http://www.openstreetmap.org/?mlat=49.60008&amp;mlon=10.97622#map=18/49.60008/10.97622">Größere Karte anzeigen</a></small> 
+       <iframe width="100%" title="myFrame"  frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0" src="http://www.openstreetmap.org/export/embed.html?bbox=10.972546935081484%2C49.59850757245689%2C10.97988545894623%2C49.60164362863992&amp;layer=mapnik&amp;marker=49.600075625759565%2C10.976216197013855"  ></iframe><br/><small><a href="http://www.openstreetmap.org/?mlat=49.60008&amp;mlon=10.97622#map=18/49.60008/10.97622">Größere Karte anzeigen</a></small> 
          
         </Col>
 
