@@ -4,6 +4,7 @@ import './App.scss';
 import axios from 'axios'
 import RestarantList from './RestarantList/index'
 import {  Row, Col, Divider, Icon, Button, AutoComplete } from 'antd';
+require('dotenv').config()
 
 
 class App extends Component {
