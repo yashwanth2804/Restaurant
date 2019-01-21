@@ -23,14 +23,14 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    const response = await axios.get("http://localhost:4000/restaurant");
+    const response = await axios.get(process.env.backend+"/restaurant");
 
 
     const data_ = response.data;
     const RestrantsCount = data_.Restrants.length;
     const hasNxt = (RestrantsCount === 0) ? false : true;
     
-    const response1 = await axios.get("http://localhost:4000/restaurant/cuisines");
+    const response1 = await axios.get( process.env.backend+"/restaurant/cuisines");
    
     const cuisines =  response1.data;
     
@@ -118,7 +118,8 @@ this.setState({ ...this.state, data: data_.Restrants, Count: data_.Count, hasNxt
         skip
 
       }
-      const r = await axios.post("http://localhost:4000/restaurant/search", {
+
+      const r = await axios.post(process.env.backend+"/restaurant/search", {
         obj
       });
 
