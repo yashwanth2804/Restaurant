@@ -5,7 +5,6 @@
   "dependencies": {
     "antd": "^3.12.3",
     "axios": "^0.18.0",
-    "dotenv": "^6.2.0",
     "here-js-api": "^1.0.10",
     "node-sass": "^4.11.0",
     "react": "^16.7.0",
@@ -13,7 +12,7 @@
     "react-scripts": "2.1.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "BACKEND=https://nodejs-hhjs72fhf.now.sh react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -26,5 +25,6 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {}
 }

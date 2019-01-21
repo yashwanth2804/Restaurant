@@ -24,14 +24,15 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    const response = await axios.get(process.env.backend+"/restaurant");
-    console.log(process.env.backend)
+   
+    const response = await axios.get("https://nodejs-hhjs72fhf.now.sh/restaurant");
+   
 
     const data_ = response.data;
     const RestrantsCount = data_.Restrants.length;
     const hasNxt = (RestrantsCount === 0) ? false : true;
     
-    const response1 = await axios.get( process.env.backend+"/restaurant/cuisines");
+    const response1 = await axios.get("https://nodejs-hhjs72fhf.now.sh/restaurant/cuisines");
    
     const cuisines =  response1.data;
     
@@ -121,7 +122,7 @@ this.setState({ ...this.state, data: data_.Restrants, Count: data_.Count, hasNxt
       }
       
 
-      const r = await axios.post(process.env.backend+"/restaurant/search", {
+      const r = await axios.post("https://nodejs-hhjs72fhf.now.sh/restaurant/search", {
         obj
       });
 
