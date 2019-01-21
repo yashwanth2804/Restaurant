@@ -1,15 +1,11 @@
-import React, { Component , Suspense } from 'react';
+import React, { Component  } from 'react';
 import Nav from './Nav/Nav'
 import './App.scss';
 import axios from 'axios'
-import {  Row, Col, Divider, Icon, Button, AutoComplete,Skeleton , Spin } from 'antd';
+import {  Row, Col, Divider, Icon, Button, AutoComplete,Skeleton  } from 'antd';
 
 import RestarantList from './RestarantList/index'
-
  
-
-//const RestarantList = React.lazy(() => import('./RestarantList/index'));
-
 class App extends Component {
   
   state = {
