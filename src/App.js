@@ -1,13 +1,17 @@
-import React, { Component } from 'react';
+import React, { Component , Suspense } from 'react';
 import Nav from './Nav/Nav'
 import './App.scss';
 import axios from 'axios'
-import RestarantList from './RestarantList/index'
-import {  Row, Col, Divider, Icon, Button, AutoComplete } from 'antd';
-require('dotenv').config()
+import {  Row, Col, Divider, Icon, Button, AutoComplete,Skeleton , Spin } from 'antd';
 
+import RestarantList from './RestarantList/index'
+
+ 
+
+//const RestarantList = React.lazy(() => import('./RestarantList/index'));
 
 class App extends Component {
+  
   state = {
     skip: 0,
     search_rest: "",
@@ -18,7 +22,8 @@ class App extends Component {
     sortOrder: -1,
     page: 1,
     hasNxt: false,
-    cuisines:[]
+    cuisines:[],
+    isLoadingCompleted:false
 
 
   }
@@ -39,10 +44,9 @@ class App extends Component {
    
 
 
-this.setState({ ...this.state, data: data_.Restrants, Count: data_.Count, hasNxt });
-
-    this.setState({ cuisines: [...this.state.cuisines,...cuisines]}) 
-     
+this.setState({ ...this.state, data: data_.Restrants, Count: data_.Count, hasNxt,
+  cuisines: [...this.state.cuisines,...cuisines] , isLoadingCompleted:true
+}); 
 
   }
 
@@ -111,6 +115,7 @@ this.setState({ ...this.state, data: data_.Restrants, Count: data_.Count, hasNxt
 
       const { search_rest, search_Cur, sort, sortOrder, skip } = this.state;
 
+      this.setState({isLoadingCompleted:false});
 
       const obj = {
         Res_Name: search_rest,
@@ -138,6 +143,7 @@ this.setState({ ...this.state, data: data_.Restrants, Count: data_.Count, hasNxt
         Count,
         hasNxt,
         data: matchedRestrants,
+        isLoadingCompleted:true
 
       })
 
@@ -195,7 +201,11 @@ this.setState({ ...this.state, data: data_.Restrants, Count: data_.Count, hasNxt
 
         </section>
         <section className={"RestarantCard"}>
-          <RestarantList data={this.state.data} />
+     
+       {(!this.state.isLoadingCompleted) 
+          ?<div style={{width:"70%",marginLeft:"10%"}} ><Skeleton  active /></div>
+          :<RestarantList data={this.state.data} />}
+    
            
         </section>
       </div>
