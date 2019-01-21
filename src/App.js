@@ -24,7 +24,7 @@ class App extends Component {
 
   async componentDidMount() {
     const response = await axios.get(process.env.backend+"/restaurant");
-
+    console.log(process.env.backend)
 
     const data_ = response.data;
     const RestrantsCount = data_.Restrants.length;
@@ -118,6 +118,7 @@ this.setState({ ...this.state, data: data_.Restrants, Count: data_.Count, hasNxt
         skip
 
       }
+      
 
       const r = await axios.post(process.env.backend+"/restaurant/search", {
         obj
