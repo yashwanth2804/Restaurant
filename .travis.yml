@@ -9,7 +9,7 @@ script:
 deploy:
   provider: surge
   skip_cleanup: true
-  domain: restafind.surge.sh
+  domain: https://restafind.surge.sh
   project: ./build/
 on:
   branch: master
