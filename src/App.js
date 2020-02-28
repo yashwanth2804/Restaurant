@@ -1,13 +1,13 @@
-import React, { Component  } from 'react';
+import React, { Component } from 'react';
 import Nav from './Nav/Nav'
 import './App.scss';
 import axios from 'axios'
-import {  Row, Col, Divider, Icon, Button, AutoComplete,Skeleton  } from 'antd';
+import { Row, Col, Divider, Icon, Button, AutoComplete, Skeleton } from 'antd';
 
 import RestarantList from './RestarantList/index'
- 
+
 class App extends Component {
-  
+
   state = {
     skip: 0,
     search_rest: "",
@@ -18,31 +18,32 @@ class App extends Component {
     sortOrder: -1,
     page: 1,
     hasNxt: false,
-    cuisines:[],
-    isLoadingCompleted:false
+    cuisines: [],
+    isLoadingCompleted: false
 
 
   }
 
   async componentDidMount() {
-   
-    const response = await axios.get("https://nodejs-hhjs72fhf.now.sh/restaurant");
-   
+
+    const response = await axios.get("https://+"process.env.REACT_APP_backend"+/restaurant");
+
 
     const data_ = response.data;
     const RestrantsCount = data_.Restrants.length;
     const hasNxt = (RestrantsCount === 0) ? false : true;
-    
-    const response1 = await axios.get("https://nodejs-hhjs72fhf.now.sh/restaurant/cuisines");
-   
-    const cuisines =  response1.data;
-    
-   
+
+    const response1 = await axios.get("https://+"process.env.REACT_APP_backend"+/restaurant/cuisines");
+
+    const cuisines = response1.data;
 
 
-this.setState({ ...this.state, data: data_.Restrants, Count: data_.Count, hasNxt,
-  cuisines: [...this.state.cuisines,...cuisines] , isLoadingCompleted:true
-}); 
+
+
+    this.setState({
+      ...this.state, data: data_.Restrants, Count: data_.Count, hasNxt,
+      cuisines: [...this.state.cuisines, ...cuisines], isLoadingCompleted: true
+    });
 
   }
 
@@ -60,8 +61,8 @@ this.setState({ ...this.state, data: data_.Restrants, Count: data_.Count, hasNxt
     }
     const handleCursine = (e) => {
 
-      console.log( e )
-      this.setState({ search_Cur: e})
+      console.log(e)
+      this.setState({ search_Cur: e })
 
     }
     const handleSort = async (sort, sortOrder) => {
@@ -111,7 +112,7 @@ this.setState({ ...this.state, data: data_.Restrants, Count: data_.Count, hasNxt
 
       const { search_rest, search_Cur, sort, sortOrder, skip } = this.state;
 
-      this.setState({isLoadingCompleted:false});
+      this.setState({ isLoadingCompleted: false });
 
       const obj = {
         Res_Name: search_rest,
@@ -121,9 +122,9 @@ this.setState({ ...this.state, data: data_.Restrants, Count: data_.Count, hasNxt
         skip
 
       }
-      
 
-      const r = await axios.post("https://nodejs-hhjs72fhf.now.sh/restaurant/search", {
+
+      const r = await axios.post("https://+"process.env.REACT_APP_backend"+/restaurant/search", {
         obj
       });
 
@@ -139,7 +140,7 @@ this.setState({ ...this.state, data: data_.Restrants, Count: data_.Count, hasNxt
         Count,
         hasNxt,
         data: matchedRestrants,
-        isLoadingCompleted:true
+        isLoadingCompleted: true
 
       })
 
@@ -153,28 +154,28 @@ this.setState({ ...this.state, data: data_.Restrants, Count: data_.Count, hasNxt
             <Col md={{ span: 10 }} >
               <input className={"g inp"} value={this.state.search_rest} onChange={(e) => handleRest(e)} placeholder={"Restrant   "} /> </Col>
             <Col md={{ span: 10 }} >
-            <AutoComplete
-            className={"g inp"}
-             style={{ padding:"0px" }}
-            dataSource={this.state.cuisines}
-             placeholder="Cuisines ..."
-             value={this.state.search_Cur}
-             onChange={(e) => handleCursine(e)}
-             filterOption={(inputValue, option) => option.props.children.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1}
-           />
+              <AutoComplete
+                className={"g inp"}
+                style={{ padding: "0px" }}
+                dataSource={this.state.cuisines}
+                placeholder="Cuisines ..."
+                value={this.state.search_Cur}
+                onChange={(e) => handleCursine(e)}
+                filterOption={(inputValue, option) => option.props.children.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1}
+              />
 
-           
-{/**           <input className={"g inp"} onChange={(e) => handleCursine(e)} value={this.state.search_Cur} placeholder={"Cursine ...   "} />  */}
-</Col>
-             
-              <Col md={{ span: 4 }} >
+
+              {/**           <input className={"g inp"} onChange={(e) => handleCursine(e)} value={this.state.search_Cur} placeholder={"Cursine ...   "} />  */}
+            </Col>
+
+            <Col md={{ span: 4 }} >
               <button className={"write"} onClick={handleSrch}>Search</button></Col>
 
           </Row>
 
           <br></br>
           <Row>
-            <Col md={{ span: 6 ,offset: 1 }} style={{ borderRight: "2px solid #14b38e" }}  > <b>Rating </b>
+            <Col md={{ span: 6, offset: 1 }} style={{ borderRight: "2px solid #14b38e" }}  > <b>Rating </b>
               <Icon style={{ cursor: "pointer" }} type="arrow-down" onClick={() => { handleSort("Aggregate rating", -1) }} /> <Divider type="vertical" />
               <Icon style={{ cursor: "pointer" }} type="arrow-up" onClick={() => { handleSort("Aggregate rating", 1) }} />   </Col>
             <Col md={{ span: 6, offset: 1 }} style={{ borderRight: "2px solid #14b38e" }} >
@@ -197,12 +198,12 @@ this.setState({ ...this.state, data: data_.Restrants, Count: data_.Count, hasNxt
 
         </section>
         <section className={"RestarantCard"}>
-     
-       {(!this.state.isLoadingCompleted) 
-          ?<div style={{width:"70%",marginLeft:"10%"}} ><Skeleton  active /></div>
-          :<RestarantList data={this.state.data} />}
-    
-           
+
+          {(!this.state.isLoadingCompleted)
+            ? <div style={{ width: "70%", marginLeft: "10%" }} ><Skeleton active /></div>
+            : <RestarantList data={this.state.data} />}
+
+
         </section>
       </div>
     );
