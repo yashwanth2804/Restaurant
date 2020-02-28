@@ -26,14 +26,14 @@ class App extends Component {
 
   async componentDidMount() {
 
-    const response = await axios.get("https://+"process.env.REACT_APP_backend"+/restaurant");
+    const response = await axios.get("https://" + process.env.REACT_APP_backend + "/restaurant");
 
 
     const data_ = response.data;
     const RestrantsCount = data_.Restrants.length;
     const hasNxt = (RestrantsCount === 0) ? false : true;
 
-    const response1 = await axios.get("https://+"process.env.REACT_APP_backend"+/restaurant/cuisines");
+    const response1 = await axios.get("https://" + process.env.REACT_APP_backend + "/restaurant/cuisines");
 
     const cuisines = response1.data;
 
@@ -124,7 +124,7 @@ class App extends Component {
       }
 
 
-      const r = await axios.post("https://+"process.env.REACT_APP_backend"+/restaurant/search", {
+      const r = await axios.post("https://" + process.env.REACT_APP_backend + "/restaurant/search", {
         obj
       });
 
